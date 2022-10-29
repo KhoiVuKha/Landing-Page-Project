@@ -22,6 +22,9 @@
  * Define Global Variables
  *
  */
+const sections = document.querySelectorAll('section');
+const navBar = document.querySelectorAll('.navbar__menu');
+const navBarList = document.querySelector('#navbar__list');
 
 /**
  * End Global Variables
@@ -35,9 +38,28 @@
  *
  */
 
-// build the nav
+// build the navigation bar
+function buildNavigationBar() {
+  // Append element to navigation bar
+  sections.forEach(section => {
+    // Get section ID
+    const sectionID = section.id;
+    // Get section atrribute
+    const sectionAtrribute = section.dataset.nav;
+    // Create nav button
+    const navButton = document.createElement('li');
+    navButton.insertAdjacentHTML("afterbegin",`<a href="#${sectionID}" class="menu__link">${sectionAtrribute}</a>`);
+    // Append nav button to nav button list
+    navBarList.appendChild(navButton);
+  });
+  navBar.appendChild(navBarList);
+}
+
+// Call the build navigation bar funtion
+buildNavigationBar();
 
 // Add class 'active' to section when near top of viewport
+
 
 // Scroll to anchor ID using scrollTO event
 
