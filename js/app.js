@@ -23,7 +23,7 @@
  *
  */
 const sections = document.querySelectorAll('section');
-const navBar = document.querySelectorAll('.navbar__menu');
+const navBarMenu = document.querySelectorAll('.navbar__menu');
 const navBarList = document.querySelector('#navbar__list');
 
 /**
@@ -40,19 +40,21 @@ const navBarList = document.querySelector('#navbar__list');
 
 // build the navigation bar
 function buildNavigationBar() {
-  // Append element to navigation bar
-  sections.forEach(section => {
+  for (const section of sections) {
     // Get section ID
     const sectionID = section.id;
     // Get section atrribute
     const sectionAtrribute = section.dataset.nav;
-    // Create nav button
-    const navButton = document.createElement('li');
-    navButton.insertAdjacentHTML("afterbegin",`<a href="#${sectionID}" class="menu__link">${sectionAtrribute}</a>`);
-    // Append nav button to nav button list
-    navBarList.appendChild(navButton);
-  });
-  navBar.appendChild(navBarList);
+    // Create new nav button
+    const button = 
+    `<li>
+      <a class="menu__link" href="#${sectionID}">${sectionAtrribute}</a>
+    </li>`;
+    // Append button to list of nav button
+    navBarList.insertAdjacentHTML('beforeend', button);
+  }
+  // Append navList to navigation bar menu
+  navBarMenu.appendChild(navBarList);
 }
 
 // Call the build navigation bar funtion
