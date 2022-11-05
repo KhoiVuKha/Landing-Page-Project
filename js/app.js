@@ -25,6 +25,7 @@
 const sections = document.querySelectorAll('section');
 const navBarMenu = document.querySelectorAll('.navbar__menu');
 const navBarList = document.querySelector('#navbar__list');
+const goToTopButton = document.querySelector('.custom-button');
 
 /**
  * End Global Variables
@@ -81,6 +82,20 @@ function setActiveSection() {
   })
 }
 
+// Function to show the go to top button
+function showGoToTopButton() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    goToTopButton.style.display = 'block';
+  } else {
+    goToTopButton.style.display = 'none';
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;            // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
 /**
  * End Main Functions
  * Begin Events
@@ -103,4 +118,8 @@ navBarList.addEventListener('click', function(event) {
 // Set sections as active
 window.onscroll = () => {
   setActiveSection();
+  showGoToTopButton();
 }
+
+// Scroll to top of the page - refer to: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+goToTopButton.addEventListener('click', topFunction);
