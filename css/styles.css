@@ -89,6 +89,15 @@ section {
   transition: ease 0.3s all;
 }
 
+.active-button {
+  display: block;
+  background: #0ddaf1;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f0121;
+}
+
 /* Header Styles */
 .page__header {
   background: #fff;

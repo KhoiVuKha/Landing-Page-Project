@@ -31,6 +31,14 @@ const navBarList = document.querySelector('#navbar__list');
  * Start Helper Functions
  *
  */
+// Check if element is in the view port
+let isInViewport = element => {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top <= 350 && 
+    rect.bottom >= 350
+  );
+}
 
 /**
  * End Helper Functions
@@ -57,11 +65,21 @@ function buildNavigationBar() {
   navBarMenu.appendChild(navBarList);
 }
 
-// Call the build navigation bar funtion
-buildNavigationBar();
-
 // Add class 'active' to section when near top of viewport
+function setActiveSection() {
+  // get list of menu__link
+  const navList = document.querySelectorAll(".menu__link");
 
+  sections.forEach((section, i)=>{
+    if (isInViewport(section)) {
+      section.classList.add("your-active-class");
+      navList[i].classList.add("active-button");
+    } else {
+      section.classList.remove("your-active-class");
+      navList[i].classList.remove("active-button");
+    }
+  })
+}
 
 // Scroll to anchor ID using scrollTO event
 
@@ -72,7 +90,14 @@ buildNavigationBar();
  */
 
 // Build menu
+window.onload = () => {
+  // Call function to build the navBar
+  buildNavigationBar();
+}
 
 // Scroll to section on link click
 
 // Set sections as active
+window.onscroll = () => {
+  setActiveSection();
+}
