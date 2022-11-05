@@ -81,8 +81,6 @@ function setActiveSection() {
   })
 }
 
-// Scroll to anchor ID using scrollTO event
-
 /**
  * End Main Functions
  * Begin Events
@@ -96,6 +94,11 @@ window.onload = () => {
 }
 
 // Scroll to section on link click
+navBarList.addEventListener('click', function(event) {
+  event.preventDefault();
+  const section = document.querySelector(event.target.getAttribute("href"));
+  section.scrollIntoView({block: 'center', behavior: 'smooth'});
+});
 
 // Set sections as active
 window.onscroll = () => {
