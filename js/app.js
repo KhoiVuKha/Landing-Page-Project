@@ -26,6 +26,7 @@ const sections = document.querySelectorAll('section');
 const navBarMenu = document.querySelectorAll('.navbar__menu');
 const navBarList = document.querySelector('#navbar__list');
 const goToTopButton = document.querySelector('.custom-button');
+const header = document.querySelector('.page__header');
 
 /**
  * End Global Variables
@@ -85,7 +86,17 @@ function setActiveSection() {
 // Function to show the go to top button
 function showGoToTopButton() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    // Show the go up button
     goToTopButton.style.display = 'block';
+
+    // Declare a timer for hiding the go up button
+    let goUpButtonTimer;
+    window.clearTimeout(goUpButtonTimer);
+
+    // Hide go up button when timer is timeout
+    goUpButtonTimer = setTimeout(function() {
+      goToTopButton.style.display = 'none';
+    }, 10000);
   } else {
     goToTopButton.style.display = 'none';
   }
@@ -94,6 +105,20 @@ function showGoToTopButton() {
 function topFunction() {
   document.body.scrollTop = 0;            // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+function toggleNavBar() {
+  // Show nav bar when have scroll events
+  header.style.cssText = "transition: ease 0.5s; opacity: 1;"
+  
+  // Declare a timer for hiding the navbar
+  let navBarDisplayTimer;
+  window.clearTimeout(navBarDisplayTimer);
+
+  // Hide nav bar when timer is timeout
+  navBarDisplayTimer = setTimeout(function() {
+      header.style.cssText = "transition: ease 0.5s; opacity: 0;"
+  }, 5000);
 }
 
 /**
@@ -119,6 +144,7 @@ navBarList.addEventListener('click', function(event) {
 window.onscroll = () => {
   setActiveSection();
   showGoToTopButton();
+  toggleNavBar();
 }
 
 // Scroll to top of the page - refer to: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp

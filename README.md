@@ -6,6 +6,14 @@ This is the 2nd project from Udacity Front-end Web developer course.
 The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
 To get started, open `js/app.js` and start building out the app's functionality
+
+I have done some points:
+- Linked the app.js to my project.
+- Built the navigation menu.
+- Add functionality (isInViewport) to distinguish the section in view port.
+- Add the functionality to scroll to sections.
+- Add functionality to hide/display the navbar and the go to top of the page button (go up button). 
+
 For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
 
 ## Demo-Preview
