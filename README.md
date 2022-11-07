@@ -17,7 +17,15 @@ I have done some points:
 For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
 
 ## Demo-Preview
+Responsive layout
+- Desktop browser:
 ![image](https://user-images.githubusercontent.com/15206083/200113496-c0bd32d3-7345-4266-a2a4-e73cfcf6d910.png)
+
+- Iphone 12 Pro:
+![image](https://user-images.githubusercontent.com/15206083/200224055-1bf336ca-240d-455a-b830-ed5d3448396b.png)
+
+- iPad:
+![image](https://user-images.githubusercontent.com/15206083/200224206-82df21ce-6bdb-40a5-9f2e-3b1924af1627.png)
 
 ## Table of Contents
 * [Project description](#project-description)
