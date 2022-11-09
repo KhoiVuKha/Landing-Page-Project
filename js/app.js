@@ -23,7 +23,7 @@
  *
  */
 const sections = document.querySelectorAll('section');
-const navBarMenu = document.querySelectorAll('.navbar__menu');
+const navBarMenu = document.querySelector('.navbar__menu');
 const navBarList = document.querySelector('#navbar__list');
 const goToTopButton = document.querySelector('.custom-button');
 const header = document.querySelector('.page__header');
