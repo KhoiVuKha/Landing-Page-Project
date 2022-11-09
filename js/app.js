@@ -75,10 +75,14 @@ function setActiveSection() {
   sections.forEach((section, i)=>{
     if (isInViewport(section)) {
       section.classList.add("your-active-class");
-      navList[i].classList.add("active-button");
+      if (navList[i]) {
+        navList[i].classList.add("active-button");
+      }
     } else {
       section.classList.remove("your-active-class");
-      navList[i].classList.remove("active-button");
+      if (navList[i]) {
+        navList[i].classList.remove("active-button");
+      }
     }
   })
 }
